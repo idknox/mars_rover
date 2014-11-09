@@ -58,4 +58,30 @@ describe Rover do
     @rover.change_position_to([2, 1])
     expect(@rover.position).to eq([1, 2])
   end
+
+  it 'can turn' do
+    @rover.turn('L')
+    expect(@rover.direction).to eq('W')
+
+    @rover.turn('L')
+    expect(@rover.direction).to eq('S')
+
+    @rover.turn('L')
+    expect(@rover.direction).to eq('E')
+
+    @rover.turn('L')
+    expect(@rover.direction).to eq('N')
+
+    @rover.turn('R')
+    expect(@rover.direction).to eq('E')
+
+    @rover.turn('R')
+    expect(@rover.direction).to eq('S')
+
+    @rover.turn('R')
+    expect(@rover.direction).to eq('W')
+
+    @rover.turn('R')
+    expect(@rover.direction).to eq('N')
+  end
 end

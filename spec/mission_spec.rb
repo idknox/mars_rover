@@ -15,8 +15,17 @@ describe Mission do
                      [0, 0, 0, 0, 0],
                      [0, 0, 0, 0, 0]]
 
-    pp @mission.grid
     expect(@mission.grid).to eq(expected_grid)
-
   end
+
+  # it 'can move rover' do
+  #   @mission.command_rover(@mission.rovers.first, 'R')
+  #   expected_grid = [[0, 0, 0, 0, 0],
+  #                    [0, 1, 0, 1, 0],
+  #                    [0, 0, 0, 0, 0],
+  #                    [0, 0, 0, 0, 0],
+  #                    [0, 0, 0, 0, 0]]
+  #
+  #   expect(@mission.grid).to eq(expected_grid)
+  #   end
 end

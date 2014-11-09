@@ -7,6 +7,12 @@ class Mission
 
   attr_reader :grid, :rovers
 
+  def command_rover(rover, command)
+    if command == 'M'
+      move_rover(rover)
+    end
+  end
+
   private
 
   def set_starting_positions
@@ -21,5 +27,13 @@ class Mission
 
   def x_coordinate(rover)
     rover.position[0]
+  end
+
+  def move_rover(rover)
+    rover.change_position_
+  end
+
+  def rover_can_move?(rover, command)
+
   end
 end
