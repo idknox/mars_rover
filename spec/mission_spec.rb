@@ -18,14 +18,53 @@ describe Mission do
     expect(@mission.grid).to eq(expected_grid)
   end
 
-  # it 'can move rover' do
-  #   @mission.command_rover(@mission.rovers.first, 'R')
-  #   expected_grid = [[0, 0, 0, 0, 0],
-  #                    [0, 1, 0, 1, 0],
-  #                    [0, 0, 0, 0, 0],
-  #                    [0, 0, 0, 0, 0],
-  #                    [0, 0, 0, 0, 0]]
-  #
-  #   expect(@mission.grid).to eq(expected_grid)
-  #   end
+  it 'can move rover N' do
+    @mission.command_rover(@mission.rovers.first, 'M')
+    expected_grid = [[0, 0, 0, 0, 0],
+                     [0, 1, 0, 1, 0],
+                     [0, 0, 0, 0, 0],
+                     [0, 0, 0, 0, 0],
+                     [0, 0, 0, 0, 0]]
+
+    expect(@mission.grid).to eq(expected_grid)
+  end
+
+  it 'can move rover E' do
+    @mission.command_rover(@mission.rovers.first, 'R')
+    @mission.command_rover(@mission.rovers.first, 'M')
+    expected_grid = [[0, 0, 0, 0, 0],
+                     [0, 0, 0, 1, 0],
+                     [0, 0, 1, 0, 0],
+                     [0, 0, 0, 0, 0],
+                     [0, 0, 0, 0, 0]]
+
+    expect(@mission.grid).to eq(expected_grid)
+  end
+
+  it 'can move rover S' do
+    @mission.command_rover(@mission.rovers.first, 'R')
+    @mission.command_rover(@mission.rovers.first, 'R')
+
+    @mission.command_rover(@mission.rovers.first, 'M')
+    expected_grid = [[0, 0, 0, 0, 0],
+                     [0, 0, 0, 1, 0],
+                     [0, 0, 0, 0, 0],
+                     [0, 1, 0, 0, 0],
+                     [0, 0, 0, 0, 0]]
+
+    expect(@mission.grid).to eq(expected_grid)
+  end
+
+  it 'can move rover S' do
+    @mission.command_rover(@mission.rovers.first, 'L')
+
+    @mission.command_rover(@mission.rovers.first, 'M')
+    expected_grid = [[0, 0, 0, 0, 0],
+                     [0, 0, 0, 1, 0],
+                     [1, 0, 0, 0, 0],
+                     [0, 0, 0, 0, 0],
+                     [0, 0, 0, 0, 0]]
+
+    expect(@mission.grid).to eq(expected_grid)
+  end
 end

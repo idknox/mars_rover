@@ -16,11 +16,11 @@ class Rover
     @direction = new_direction
   end
 
-  def x_coordinate
+  def x_coord
     @position.first
   end
 
-  def y_coordinate
+  def y_coord
     @position.last
   end
 
@@ -28,19 +28,24 @@ class Rover
     @direction =  turn_direction == 'L' ? DIRECTIONS[DIRECTIONS.index(@direction)-1] : (@direction == 'W' ? 'N' : DIRECTIONS[DIRECTIONS.index(@direction)+1])
   end
 
+  def move
+    change_position_to([x_coord, y_coord - 1]) if @direction == 'N'
+    change_position_to([x_coord, y_coord + 1]) if @direction == 'S'
+    change_position_to([x_coord + 1, y_coord]) if @direction == 'E'
+    change_position_to([x_coord - 1, y_coord]) if @direction == 'W'
+  end
+
   private
 
   def x_within_one?(destination)
-    (destination.first - x_coordinate < 2 ) && (x_coordinate - destination.first < 2)
+    (destination.first - x_coord < 2 ) && (x_coord - destination.first < 2)
   end
 
   def y_within_one?(destination)
-    (destination.last - y_coordinate < 2 ) && (y_coordinate - destination.last < 2)
+    (destination.last - y_coord < 2 ) && (y_coord - destination.last < 2)
   end
 
   def is_not_diagonal?(destination)
-    destination.first == x_coordinate || destination.last == y_coordinate
+    destination.first == x_coord || destination.last == y_coord
   end
-
-
 end

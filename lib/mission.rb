@@ -10,6 +10,8 @@ class Mission
   def command_rover(rover, command)
     if command == 'M'
       move_rover(rover)
+    else
+      rover.turn(command)
     end
   end
 
@@ -30,7 +32,10 @@ class Mission
   end
 
   def move_rover(rover)
-    rover.change_position_
+    old_position = rover.position
+    rover.move
+    @grid[old_position.last][old_position.first] = 0
+    @grid[rover.position.last][rover.position.first] = 1
   end
 
   def rover_can_move?(rover, command)
