@@ -15,6 +15,10 @@ class Mission
     end
   end
 
+  def instructions_to_rover(rover, instructions)
+    instructions.chars.each {|command| command_rover(rover, command)}
+  end
+
   private
 
   def set_starting_positions

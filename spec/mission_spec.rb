@@ -67,4 +67,15 @@ describe Mission do
 
     expect(@mission.grid).to eq(expected_grid)
   end
+
+  it 'can give rover multiple commands' do
+    @mission.instructions_to_rover(@mission.rovers.first, 'LMLMLMLMM')
+    expected_grid = [[0, 0, 0, 0, 0],
+                     [0, 1, 0, 1, 0],
+                     [0, 0, 0, 0, 0],
+                     [0, 0, 0, 0, 0],
+                     [0, 0, 0, 0, 0]]
+    expect(@mission.grid).to eq(expected_grid)
+    expect(@rover1.direction).to eq('N')
+  end
 end
