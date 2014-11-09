@@ -7,7 +7,7 @@ class Rover
   attr_reader :position, :direction
 
   def change_position_to(destination)
-    @position = destination if x_within_one?(destination) && y_within_one?(destination)
+    @position = destination if x_within_one?(destination) && y_within_one?(destination) && is_not_diagonal?(destination)
   end
 
   def change_direction_to(new_direction)
@@ -22,5 +22,9 @@ class Rover
 
   def y_within_one?(destination)
     (destination.last - @position.last < 2 ) && (@position.last - destination.last < 2)
+  end
+
+  def is_not_diagonal?(destination)
+    destination.first == @position.first || destination.last == @position.last
   end
 end

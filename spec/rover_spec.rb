@@ -44,4 +44,18 @@ describe Rover do
     @rover.change_position_to([1, 0])
     expect(@rover.position).to eq([1, 2])
   end
+
+  it 'cannot move diagonally' do
+    @rover.change_position_to([2, 3])
+    expect(@rover.position).to eq([1, 2])
+
+    @rover.change_position_to([0, 1])
+    expect(@rover.position).to eq([1, 2])
+
+    @rover.change_position_to([0, 3])
+    expect(@rover.position).to eq([1, 2])
+
+    @rover.change_position_to([2, 1])
+    expect(@rover.position).to eq([1, 2])
+  end
 end
