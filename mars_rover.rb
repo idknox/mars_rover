@@ -1,11 +1,23 @@
 #!/usr/bin/env ruby
+require 'CSV'
+require 'pp'
 
 puts "Enter Rover info: "
 
-input = gets.chomp
+data = CSV.readlines('./info.csv', headers: true)
 
-bounds = input.split('/n').first
+bounds = [data.headers[0], data.headers[1]]
+rovers = []
+data.each_with_index do |row, i|
+  if row.first =~ /\A[-+]?[0-9]*\.?[0-9]+\Z/
+    rovers << Rover.new(row[0], row[1], data[i+1].join(''))
+  end
+end
 
-rover_info = input.split('/n')[1..-1]
+mission = Mission.new(bounds, rovers)
+
+mission.rovers.each do |rover|
+  mission.instructions_to_rover(rover, rover.instructions)
+end
 
 rover_info.each

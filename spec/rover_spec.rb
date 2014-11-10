@@ -84,4 +84,10 @@ describe Rover do
     @rover.turn('R')
     expect(@rover.direction).to eq('N')
   end
+
+  it 'can keep its instructions' do
+    rover = Rover.new(1, 2, 'N', 'LMRMRMR')
+
+    expect(rover.instructions).to eq('LMRMRMR')
+  end
 end

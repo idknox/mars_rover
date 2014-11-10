@@ -1,10 +1,11 @@
 class Rover
-  def initialize(starting_x, starting_y, starting_direction)
+  def initialize(starting_x, starting_y, starting_direction, instructions = nil)
     @position = [starting_x, starting_y]
     @direction = starting_direction
+    @instructions = instructions
   end
 
-  attr_reader :position, :direction
+  attr_reader :position, :direction, :instructions
 
   DIRECTIONS = %w(N E S W)
 
