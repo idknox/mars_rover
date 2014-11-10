@@ -8,20 +8,20 @@ class Rover
 
   DIRECTIONS = %w(N E S W)
 
-  def change_position_to(destination)
-    @position = destination if x_within_one?(destination) && y_within_one?(destination) && is_not_diagonal?(destination)
-  end
-
-  def change_direction_to(new_direction)
-    @direction = new_direction
-  end
-
   def x_coord
     @position.first
   end
 
   def y_coord
     @position.last
+  end
+
+  def change_position_to(destination)
+    @position = destination if x_within_one?(destination) && y_within_one?(destination) && is_not_diagonal?(destination)
+  end
+
+  def change_direction_to(new_direction)
+    @direction = new_direction
   end
 
   def turn(turn_direction)
