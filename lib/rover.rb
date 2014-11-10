@@ -29,8 +29,8 @@ class Rover
   end
 
   def move
-    change_position_to([x_coord, y_coord - 1]) if @direction == 'N'
-    change_position_to([x_coord, y_coord + 1]) if @direction == 'S'
+    change_position_to([x_coord, y_coord + 1]) if @direction == 'N'
+    change_position_to([x_coord, y_coord - 1]) if @direction == 'S'
     change_position_to([x_coord + 1, y_coord]) if @direction == 'E'
     change_position_to([x_coord - 1, y_coord]) if @direction == 'W'
   end
