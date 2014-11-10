@@ -1,5 +1,7 @@
+require_relative 'rover'
+
 class Mission
-  def initialize(upper_bound, *rovers)
+  def initialize(upper_bound, rovers)
     @grid = (upper_bound.last+1).times.map { (upper_bound.first+1).times.map { 0 } }
     @rovers = rovers
     set_starting_positions
