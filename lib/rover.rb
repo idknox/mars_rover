@@ -1,6 +1,6 @@
 class Rover
-  def initialize(starting_x, starting_y, starting_direction, instructions = nil)
-    @position = [starting_x, starting_y]
+  def initialize(starting_position, starting_direction, instructions = nil)
+    @position = starting_position
     @direction = starting_direction
     @instructions = instructions
   end

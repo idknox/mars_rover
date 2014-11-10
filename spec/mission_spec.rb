@@ -3,8 +3,8 @@ require 'pp'
 
 describe Mission do
   before :each do
-    @rover1 = Rover.new(1, 2, 'N')
-    @rover2 = Rover.new(3, 3, 'E')
+    @rover1 = Rover.new([1, 2], 'N')
+    @rover2 = Rover.new([3, 3], 'E')
     @mission = Mission.new([5, 5], [@rover1, @rover2])
   end
 

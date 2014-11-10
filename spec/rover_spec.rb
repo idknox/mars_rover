@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Rover do
   before :each do
-    @rover = Rover.new(1, 2, 'N')
+    @rover = Rover.new([1, 2], 'N')
   end
 
   it 'instantiates with starting position and direction' do
@@ -86,7 +86,7 @@ describe Rover do
   end
 
   it 'can keep its instructions' do
-    rover = Rover.new(1, 2, 'N', 'LMRMRMR')
+    rover = Rover.new([1, 2], 'N', 'LMRMRMR')
 
     expect(rover.instructions).to eq('LMRMRMR')
   end
