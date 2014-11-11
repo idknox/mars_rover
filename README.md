@@ -30,3 +30,8 @@ MMRMMRMRRM
 Expected Output:
 1 3 N
 5 1 E
+
+
+INSTRUCTIONS:
+
+Run main.rb from command line with input text file as argument. Result will print to console.
